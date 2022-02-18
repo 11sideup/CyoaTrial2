@@ -24,7 +24,6 @@ B: Don't do the thing now
         return
 
 
-
 query_user()
 query_user()
 query_user()
