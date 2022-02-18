@@ -49,7 +49,7 @@ elif user_response =='D':
         B. Die Helplessly
         """)
     if consequence == 'A':
-        Adventurer.find_item("sheild")
+        Adventurer.find_item("shield")
     elif consequence =='B':
         Adventurer.print("You died helplessly.")
         Adventurer.die()
@@ -94,6 +94,7 @@ if not Adventurer.dead:
                     C. Move On
                     D. Get Stuck?
                     """)
+               # TODO: Fill out the behaviors of this selection choice.
             else:
                 bad_input(input = another_consequence)
         else:
