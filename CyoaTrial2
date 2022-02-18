@@ -1,3 +1,5 @@
+#This one works right now. It currently does not perform goback like I think it should I don't know how to make it do so. 
+
 #Define Parameters
 Q1c=0
 Q1cd=0
