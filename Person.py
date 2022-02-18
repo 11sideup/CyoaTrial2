@@ -41,7 +41,7 @@ class Person:
     def find_hint(self, hint):
         #self.hints = self.hints + hint
         self.hints.append(hint)
-        print(self.hints[self.hints.len()])
+        print(self.hints[len(self.hints) - 1])
         return None
 
     # A method to call when the person dies

@@ -86,7 +86,7 @@ if not Adventurer.dead:
             if another_consequence =='A':
                 Adventurer.print("You die bald.")
                 Adventurer.die()
-            if another_consequence =='B':
+            elif another_consequence =='B':
                consequence_2 = input("""You move on.
                     Choose option:
                     A. Die Happy
@@ -94,5 +94,7 @@ if not Adventurer.dead:
                     C. Move On
                     D. Get Stuck?
                     """)
+            else:
+                bad_input(input = another_consequence)
         else:
             bad_input(input=consequence)
