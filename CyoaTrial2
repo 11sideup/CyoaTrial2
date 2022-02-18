@@ -1,76 +1,103 @@
-#Equipped or Informed: A choose your own adventure.
+#Define Parameters
+Q1c=0
+Q1cd=0
 
-#List of Possible Hints:
 hint1=0
 hint2=0
 hint3=0
 hint4=0
-#List of Possible Items:
+
 sword=0
 shield=0
 armor=0
 wand=0
 
-Q1=input(print("""You're in a dark cave. You should try to escape alive.
-Choose option:
-    A. Die
-    B. Die Horrifically
-    C. Look For Clues
-    D. Look For Items"""))
+Q1=0
+Q2=0
+Q3=0
+
+goback=0
+
+print("Start")
+Q1=input(print("""Choose Option:
+A. Die
+B. Die Horribly
+C. Explore"""))
 if Q1=='A':
-    print("You died.")
+    print("You die.")
 if Q1=='B':
-    print("You died horrifically.")
+    print("You die horribly.")
 if Q1=='C':
-    Q1c= input(print("""Choose option:
-    A. Find Clue
-    B. Die
-    C. Die Badly"""))
-    if Q1c=='B' or Q1c=='C':
-        print("You died")
-        if Q1c=='C':
-            print("badly")
-        print(".")
+    Q1c=input(print("""You explore. Choose Option:
+    A. Hunt Item
+    B. Die Hot
+    C. Die Cold
+    D. Search For Clue"""))
     if Q1c=='A':
-        print("You find a clue.")
+        sword=1
+        print("You find a sword!")
+    if Q1c=='B':
+        print("You burn to death.")
+    if Q1c=='C':
+        print("You freeze to death.")
+    if Q1c=='D':
         hint1=1
-if Q1=='D':
-    sword=1
-    Q1d=input(print("""You find a sword!
-    Choose option:
-        A. Find Sheild
-        B. Die Helplessly"""))
-    if Q1d=='A':
-        print("You find a sheild!")
-        shield=1
-    if Q1d=='B':
-        print("You died helplessly.")
-if Q1c=='A' or Q1d=='A':
-    Q2=input(print("""You made it to the hard part. Choose option:
+        print("You find hint1!")
+        Q1cd=input(print("""Choose Option:
+        A. Search For Hint
+        B. Die Peacefully"""))
+        if Q1cd=='A':
+            hint2=1
+            print("You find hint2!")
+        if Q1cd=='B':
+            print("You die peacefully.")
+if Q1c=='A' or Q1cd=='A':
+    print("Now for the hard part.")
+    Q2=input(print("""Select Option:
     A. Go Left
     B. Go Right"""))
     if Q2=='A':
+        print("You find hint3! You find a shield!")
         hint3=1
-        armor=1
-        Q2a=input(print("""You find a hint! You find a set of armor! 
-        Choose option:
-        A. Die Cold
-        B. Die Hot
-        C. Move On"""))
+        shield=1
+        Q2a=input("""Choose Option:
+        A. Die Old
+        B. Die Young
+        C. Move On""")
         if Q2a=='A':
-            print("You freeze to death.")
-        if Q2b=='B':
-            print("You burn to death.")
+            print("You die old.")
+        if Q2a=='B':
+            print("You die young.")
         if Q2a=='C':
-            Q2ac=input(print("""Choose option:
-                A. Die Bald
-                B. Move On"""))
+            print("You move on.")
+            Q2ac=input(print("""Choose Option:
+            A. Die Now
+            B. Move On"""))
             if Q2ac=='A':
-                print("You die bald.")
-            if Q2ac=='B':
-                Q2acb= input(print("""You move on.
-                    Choose option:
-                    A. Die Happy
-                    B. Die Sad
-                    C. Move On
-                    D. Get Stuck?""")
+                print("You die now.")
+            if Q2ac=='B' or goback==1:
+                print("You move on.")
+                Q2acb=input(print("""Choose Option:
+                A. Die Happy
+                B. Die Sad
+                C. Move On
+                D. Get Lost"""))
+                if Q2acb=='A':
+                    print("You die happy.")
+                if Q2acb=='B':
+                    print("You die sad.")
+                if Q2acb=='C':
+                    print("You move on.")
+                if Q2acb=='D':
+                    print("You get lost.")
+                    Q2acbd=input("""Choose Option:
+                    A. Die
+                    B. Die
+                    C. Go Back""")
+                    if Q2acbd=='A':
+                        print("You die.")
+                    if Q2acbd=='B':
+                        print("You die.")
+                        if Q2acbd=='C':
+                            goback=1
+                        
