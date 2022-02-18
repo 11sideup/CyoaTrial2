@@ -11,12 +11,13 @@ def bad_input(input):
 Adventurer = Person()
 
 # Start the adventure by selecting an initial option.
-user_response=input(print("""You're in a dark cave. You should try to escape alive.
+user_response=input("""You're in a dark cave. You should try to escape alive.
 Choose option:
     A. Die
     B. Die Horrifically
     C. Look For Clues
-    D. Look For Items"""))
+    D. Look For Items
+    """)
 # Options and consequences of the first decision
 if user_response =='A':
     Adventurer.print("You died.")
@@ -25,10 +26,11 @@ elif user_response =='B':
     Adventurer.print("You died horrifically.")
     Adventurer.die()
 elif user_response =='C':
-    consequence = input(print("""Choose option:
+    consequence = input("""Choose option:
     A. Find Clue
     B. Die
-    C. Die Badly"""))
+    C. Die Badly
+    """)
     if consequence =='A':
         Adventurer.print("You find a clue.")
         Adventurer.find_hint("TODO: Hint 1 message goes here.")
@@ -42,9 +44,10 @@ elif user_response =='C':
         bad_input(input=consequence)
 elif user_response =='D':
     Adventurer.find_item(item="sword")
-    consequence = input(print("""Choose option:
+    consequence = input("""Choose option:
         A. Find Shield
-        B. Die Helplessly"""))
+        B. Die Helplessly
+        """)
     if consequence == 'A':
         Adventurer.find_item("sheild")
     elif consequence =='B':
@@ -57,16 +60,18 @@ else:
 
 # Merge the decision tree pathways if adventurer didn't die.
 if not Adventurer.dead:
-    user_response = input(print("""You made it to the hard part. Choose option:
+    user_response = input("""You made it to the hard part. Choose option:
     A. Go Left
-    B. Go Right"""))
+    B. Go Right
+    """)
     if user_response == 'A':
         Adventurer.find_item(item="armor")
         Adventurer.find_hint(hint="TODO: Put hint3 message here")
-        consequence = input(print("""Choose option:
+        consequence = input("""Choose option:
         A. Die Cold
         B. Die Hot
-        C. Move On"""))
+        C. Move On
+        """)
         if consequence =='A':
             Adventurer.print("You freeze to death.")
             Adventurer.die()
@@ -74,18 +79,20 @@ if not Adventurer.dead:
             print("You burn to death.")
             Adventurer.die()
         elif consequence =='C':
-            another_consequence=input(print("""Choose option:
+            another_consequence=input("""Choose option:
                 A. Die Bald
-                B. Move On"""))
+                B. Move On
+                """)
             if another_consequence =='A':
                 Adventurer.print("You die bald.")
                 Adventurer.die()
             if another_consequence =='B':
-                = input(print("""You move on.
+               consequence_2 = input("""You move on.
                     Choose option:
                     A. Die Happy
                     B. Die Sad
                     C. Move On
-                    D. Get Stuck?"""))
+                    D. Get Stuck?
+                    """)
         else:
             bad_input(input=consequence)

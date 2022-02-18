@@ -19,7 +19,7 @@ class Person:
     # A method to call when the person finds an item
     def find_item(self, item):
         # Print to users they found something
-        if item[0] in ["a", "e", "i", "o", "u"]
+        if item[0] in ["a", "e", "i", "o", "u"]:
             print(f"You found an {item}!")
         else:
             print(f"You found a {item}!")
