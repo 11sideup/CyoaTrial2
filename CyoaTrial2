@@ -1,0 +1,76 @@
+#Equipped or Informed: A choose your own adventure.
+
+#List of Possible Hints:
+hint1=0
+hint2=0
+hint3=0
+hint4=0
+#List of Possible Items:
+sword=0
+shield=0
+armor=0
+wand=0
+
+Q1=input(print("""You're in a dark cave. You should try to escape alive.
+Choose option:
+    A. Die
+    B. Die Horrifically
+    C. Look For Clues
+    D. Look For Items"""))
+if Q1=='A':
+    print("You died.")
+if Q1=='B':
+    print("You died horrifically.")
+if Q1=='C':
+    Q1c= input(print("""Choose option:
+    A. Find Clue
+    B. Die
+    C. Die Badly"""))
+    if Q1c=='B' or Q1c=='C':
+        print("You died")
+        if Q1c=='C':
+            print("badly")
+        print(".")
+    if Q1c=='A':
+        print("You find a clue.")
+        hint1=1
+if Q1=='D':
+    sword=1
+    Q1d=input(print("""You find a sword!
+    Choose option:
+        A. Find Sheild
+        B. Die Helplessly"""))
+    if Q1d=='A':
+        print("You find a sheild!")
+        shield=1
+    if Q1d=='B':
+        print("You died helplessly.")
+if Q1c=='A' or Q1d=='A':
+    Q2=input(print("""You made it to the hard part. Choose option:
+    A. Go Left
+    B. Go Right"""))
+    if Q2=='A':
+        hint3=1
+        armor=1
+        Q2a=input(print("""You find a hint! You find a set of armor! 
+        Choose option:
+        A. Die Cold
+        B. Die Hot
+        C. Move On"""))
+        if Q2a=='A':
+            print("You freeze to death.")
+        if Q2b=='B':
+            print("You burn to death.")
+        if Q2a=='C':
+            Q2ac=input(print("""Choose option:
+                A. Die Bald
+                B. Move On"""))
+            if Q2ac=='A':
+                print("You die bald.")
+            if Q2ac=='B':
+                Q2acb= input(print("""You move on.
+                    Choose option:
+                    A. Die Happy
+                    B. Die Sad
+                    C. Move On
+                    D. Get Stuck?""")
