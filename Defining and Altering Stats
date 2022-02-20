@@ -1,10 +1,48 @@
 ###Define Character###
-class Player:
-	def __init__(self, hp):
+class Person:
+	def __init__(self, hp, attack, defense, magic, name, alive):
 		self.hp=hp
+		self.attack=attack
+		self.defense=defense
+		self.magic=magic
+		self.name=name
+		self.alive=alive
+		if hp > 0:
+			alive=True
+		else:
+			alive=False
+		
+def givename():
+	    name=input(print('type your name'))
+	    return name
 
-bob= Player(5)
-print(f"Your hp is {bob.hp}.")
+
+bob= Person(1, 1, 1, 'Fire', givename(), True)
+def statblock():
+	print(f"""
+Your hp is {bob.hp}.
+Your attack is {bob.attack}.
+Your defense is {bob.defense}.
+Your magic is {bob.magic}.
+Your name is {bob.name}.
+Your living status is {bob.alive}.
+""")
+
+play_class= input(print("""
+Decide your class.
+A. Fighter
+B. Wizard
+C. Cleric
+D. Thief"""))
+
+if play_class=='A':
+	bob.hp=10
+	bob.attack=5
+	bob.defense=5
+	bob.magic=0
+
+statblock()
+
 		
 
 ###Standard Question Setup###
