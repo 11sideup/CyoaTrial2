@@ -1,50 +1,3 @@
-###Define Character###
-class Person:
-	def __init__(self, hp, attack, defense, magic, name, alive):
-		self.hp=hp
-		self.attack=attack
-		self.defense=defense
-		self.magic=magic
-		self.name=name
-		self.alive=alive
-		if hp > 0:
-			alive=True
-		else:
-			alive=False
-		
-def givename():
-	    name=input(print('type your name'))
-	    return name
-
-
-bob= Person(1, 1, 1, 'Fire', givename(), True)
-def statblock():
-	print(f"""
-Your hp is {bob.hp}.
-Your attack is {bob.attack}.
-Your defense is {bob.defense}.
-Your magic is {bob.magic}.
-Your name is {bob.name}.
-Your living status is {bob.alive}.
-""")
-
-play_class= input(print("""
-Decide your class.
-A. Fighter
-B. Wizard
-C. Cleric
-D. Thief"""))
-
-if play_class=='A':
-	bob.hp=10
-	bob.attack=5
-	bob.defense=5
-	bob.magic=0
-
-statblock()
-
-		
-
 ###Standard Question Setup###
 def multich(ch1="error1", ch2="error2", ch3="error3", ch4="error4"):
 	choice= input(f"""
@@ -55,7 +8,67 @@ def multich(ch1="error1", ch2="error2", ch3="error3", ch4="error4"):
 		D. {ch4}""")
 	return choice
 ###Because of how this is set up you need to define ch1-ch4 as the question options when you call the function.###
-	
+
+def playclass():
+	playclass= multich(ch1='Fighter', ch2='Wizard', ch3='Cleric', ch4='Rogue')
+	return playclass
+
+###Define Character###
+class Person:
+	def __init__(self, hp, attack, defense, magic, name, alive, playclass):
+		self.hp=hp
+		self.attack=attack
+		self.defense=defense
+		self.magic=magic
+		self.name=name
+		self.alive=alive
+		self.playclass=playclass
+		if hp > 0:
+			alive=True
+		else:
+			alive=False
+###make them give a name###		
+def givename():
+	    name=input(print('type your name'))
+	    return name
+
+###Start Player###
+bob= Person(0, 0, 0, 'none', givename(), True, playclass())
+if bob.playclass=='A':
+	bob.hp=10
+	bob.attack=5
+	bob.defense=5
+	bob.magic='None'
+elif bob.playclass=='B':
+	bob.hp=5
+	bob.attack=10
+	bob.defense=5
+	bob.magic='Fire'
+elif bob.playclass=='C':
+	bob.hp=8
+	bob.attack=4
+	bob.defense=8
+	bob.magic='Heal'
+elif bob.playclass=='D':
+	bob.hp=5
+	bob.attack=8
+	bob.defense=8
+	bob.magic='None'
+else:
+	print("input error")
+
+###print your statblock###
+def statblock():
+	print(f"""
+Your hp is {bob.hp}.
+Your attack is {bob.attack}.
+Your defense is {bob.defense}.
+Your magic is {bob.magic}.
+Your name is {bob.name}.
+Your living status is {bob.alive}.
+""")
+
+statblock()
 	
 ###Question 1###
 Q1=multich(ch1='Go North', ch2='Go South', ch3='Go West', ch4='Go East')
@@ -63,8 +76,8 @@ if Q1=='A':
 	print("Enemy appears.")
 	Q1a=multich(ch1='Fight', ch2='Run')
 	if Q1a=='A':
-		print('You fight and lose 1HP.')
-		bob.hp=bob.hp-1
+		print('You fight and lose 10HP.')
+		bob.hp=bob.hp-10
 		print(f"Your hp is {bob.hp}.")
 	elif Q1a=='B':
 		print('You run and lose 2 HP.')
@@ -72,7 +85,13 @@ if Q1=='A':
 		print(f"Your hp is {bob.hp}")
 	else:
 		raise(ValueError(f"Option {Q1a} not supported."))
-#Q1a terminates and you are either alive or dead.		
+
+statblock()
+#Q1a terminates and you are either alive or dead.
+
+				
+"""
+
 elif Q1=='B':
 	print('The end.')
 elif Q1=='C':
@@ -81,3 +100,5 @@ elif Q1=='D':
 	print('The last end.')
 else:
 	raise(ValueError(f"Option {Q1} not supported."))
+	
+"""
