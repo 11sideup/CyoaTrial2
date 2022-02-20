@@ -1,8 +1,11 @@
 ###Define Character###
 class Player:
-	def __init__(self):
-		self.hp=2
-	
+	def __init__(self, hp):
+		self.hp=hp
+
+bob= Player(5)
+print(f"Your hp is {bob.hp}.")
+		
 
 ###Standard Question Setup###
 def multich(ch1="error1", ch2="error2", ch3="error3", ch4="error4"):
@@ -23,10 +26,12 @@ if Q1=='A':
 	Q1a=multich(ch1='Fight', ch2='Run')
 	if Q1a=='A':
 		print('You fight and lose 1HP.')
-		self.hp= self.hp - 1
+		bob.hp=bob.hp-1
+		print(f"Your hp is {bob.hp}.")
 	elif Q1a=='B':
 		print('You run and lose 2 HP.')
-		self.hp= self.hp - 2
+		bob.hp=bob.hp-2
+		print(f"Your hp is {bob.hp}")
 	else:
 		raise(ValueError(f"Option {Q1a} not supported."))
 #Q1a terminates and you are either alive or dead.		
