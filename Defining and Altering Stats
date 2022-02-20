@@ -1,3 +1,4 @@
+
 ###Standard Question Setup###
 def multich(ch1="error1", ch2="error2", ch3="error3", ch4="error4"):
 	choice= input(f"""
@@ -9,6 +10,7 @@ def multich(ch1="error1", ch2="error2", ch3="error3", ch4="error4"):
 	return choice
 ###Because of how this is set up you need to define ch1-ch4 as the question options when you call the function.###
 
+###Give a specific multiple choice question for choosing playclass.###
 def playclass():
 	playclass= multich(ch1='Fighter', ch2='Wizard', ch3='Cleric', ch4='Rogue')
 	return playclass
@@ -23,17 +25,24 @@ class Person:
 		self.name=name
 		self.alive=alive
 		self.playclass=playclass
+		
 ###make them give a name###		
 def givename():
 	    name=input(print('type your name'))
 	    return name
 
 ###Start Player###
-bob= Person(0, 0, 0, 'none', givename(), True, playclass())
-if bob.hp>0:
-	bob.alive=True
-else:
-	bob.alive=False
+bob= Person(1, 1, 1, 'none', givename(), True, playclass())
+
+###Determine if player is alive###
+def alive():
+	if bob.hp>0:
+		bob.alive=True
+	else:
+		bob.alive=False
+	return bob.alive
+	
+###Alter stats based on playclass selection###
 if bob.playclass=='A':
 	bob.hp=10
 	bob.attack=5
@@ -57,7 +66,7 @@ elif bob.playclass=='D':
 else:
 	print("input error")
 
-###print your statblock###
+###function to print your statblock###
 def statblock():
 	print(f"""
 Your hp is {bob.hp}.
@@ -86,6 +95,7 @@ if Q1=='A':
 	else:
 		raise(ValueError(f"Option {Q1a} not supported."))
 
+alive()
 statblock()
 #Q1a terminates and you are either alive or dead.
 
